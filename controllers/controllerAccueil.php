@@ -13,8 +13,8 @@ class ControllerAccueil extends Controller
     public function index()
     {
         $recettes = $this->recette->getRecettes();
-        var_dump($recettes);
-        $this->genererVue(array('recette' => $recettes));
+        $this->genererVue(array('recettes' => $recettes));
+        
         // code à implémenter
         // récupérer la liste des recettes
         // générer la vue

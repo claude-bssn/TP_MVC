@@ -3,15 +3,15 @@
         <header>
             <img class="imgRecette" src="img/tartiflette.jpg" alt="Tartiflette" />
             <h1 class="titreRecette">
-                Tartiflette
+                <?= $recette["titre"]?>
             </h1>
             <time>
-                07/01/2019
+                <?= gmdate('j/m/Y', strtotime($recette["dateCreation"])); ?>
             </time>
         </header>
         <p>
-            La tartiflette savoyarde est un gratin de pommes de terre avec du
-            Reblochon fondu dessus
+        <?= $recette["description"]?>
+
         </p>
     </article>
     <hr />

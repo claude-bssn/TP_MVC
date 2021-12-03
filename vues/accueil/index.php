@@ -1,23 +1,25 @@
 <?php
 ?>
 <div id="global">
-  
+    <?php while ($recette = $recettes->fetch()): ?>
     <article>
+        
         <header>
-            <img class="imgRecette" src="img/tartiflette.jpg" width="300px" height="242px" alt="Tartiflette" />
-            <a href="index.php?controller=recette&action=recette&id=id tartiflette">
+            <img class="imgRecette" src="img/<?= $recette["photo"]?>" width="300px" height="242px" alt="Tartiflette" />
+            <a href="index.php?controller=recette&action=recette&id=<?= $recette["id"]?>">
                 <h1 class="titreRecette">
-                    Tartiflette
+                    <?= $recette["titre"] ?>
                 </h1>
             </a>
             <time>
-                07/01/2019
+                <?= gmdate('j/m/Y', strtotime($recette["dateCreation"])); ?>
             </time>
         </header>
         <p>
-            La tartiflette savoyarde est un gratin de pommes de terre avec du
-            Reblochon fondu dessus
+        <?= $recette["description"] ?>
         </p>
     </article>
+    <?php endwhile;  ?>
     <hr />
+
 </div>

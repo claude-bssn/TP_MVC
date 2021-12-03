@@ -11,9 +11,9 @@ abstract class Modele
         if ($params == null) {
             $resultat = $this->getBdd()->query($sql); // exécution directe
         } else {
+            $resultat = $this->getBdd()->prepare($sql); // requête préparée
+            $resultat->execute($params);
         }
-        $resultat = $this->getBdd()->prepare($sql); // requête préparée
-        $resultat->execute($params);
         return $resultat;
     }
     // Renvoie un objet de connexion à la BD en initialisant la connexion au besoin

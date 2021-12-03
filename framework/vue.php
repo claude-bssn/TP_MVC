@@ -36,8 +36,8 @@ class vue
             require $fichier;
             // Arrêt de la temporisation et renvoi du tampon de sortie
             return ob_get_clean();
-        } else {
+        } else 
             throw new Exception("Fichier '$fichier' introuvable");
-        }
+        
     }
 }
