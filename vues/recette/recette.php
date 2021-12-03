@@ -1,7 +1,7 @@
 <div id="global">
     <article>
         <header>
-            <img class="imgRecette" src="img/tartiflette.jpg" alt="Tartiflette" />
+            <img class="imgRecette" src="img/<?= $recette["photo"]?>" alt="Tartiflette" />
             <h1 class="titreRecette">
                 <?= $recette["titre"]?>
             </h1>
@@ -38,8 +38,8 @@
 
             </p>
             <hr>
-            <?php endwhile; ?>
-    </div>
+        </div>
+    <?php endwhile; ?>
     <form method="post" action="index.php?controller=recette&action=commenter&id=<?= $recette['id']?> ">
         <input id="auteur" name="auteur" type="text" placeholder="Votre Nom" /><br />
         <textarea id="txtCommentaire" name="contenu" rows="4" placeholder="Votre
