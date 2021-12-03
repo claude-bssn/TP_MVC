@@ -20,29 +20,27 @@
             Ingrédients
         </h2>
         <ul>
-            <li>750 g Pommes de terre</li>
-            <li>1 u Reblochon</li>
-            <li>200 g Lardons</li>
-            <li>3 cs Crème fraîche épaisse</li>
-            <li>2 u Oignons</li>
-            <li>20 g Beurre</li>
-            <li>1 cc Sel</li>
-            <li>1 p Poivre</li>
+        <?php while ($ingredient = $ingredients->fetch()): ?>
+            <li><?= $ingredient['quantite']." ".$ingredient['unit']." ". $ingredient['nom']?></li>
+        <?php endwhile; ?>
         </ul>
     </header>
     <h2 id="titreCommentaire">
         Commentaires
     </h2>
-    <div class="divCommentaire">
-        <p>Nicolas : Super recette </p>
-        <p> Note : 5/5 </p>
-        <p>
-            09/01/2019
-        </p>
-        <hr>
+    <?php #var_dump($commentaires->fetchAll())?>
+    <?php while ($commentaire = $commentaires->fetch()): ?>
+        <div class="divCommentaire">
+            <p><?= $commentaire['auteur']?> : <?= $commentaire['contenu']?> </p>
+            <p> Note : <?= $commentaire['note']?>/5 </p>
+            <p>
+                <?= gmdate('j/m/Y', strtotime($commentaire["dateCreation"])); ?>
+
+            </p>
+            <hr>
+            <?php endwhile; ?>
     </div>
-    <form method="post" action="index.php?controller=recette&action=commenter&id=id
-recette">
+    <form method="post" action="index.php?controller=recette&action=commenter&id=<?= $recette['id']?> ">
         <input id="auteur" name="auteur" type="text" placeholder="Votre Nom" /><br />
         <textarea id="txtCommentaire" name="contenu" rows="4" placeholder="Votre
 commentaire"></textarea><br />
@@ -57,7 +55,10 @@ commentaire"></textarea><br />
         <br />
         <input type="submit" value="Commenter" />
     </form>
-    <div id="erreur">
-        <p> Erreurs </p>
+    
+    <div id="erreur" >
+    <?php if (isset($erreur)):?>
+        <p > <?= $erreur?> </p>
+    <?php endif;?>
     </div>
 </div>

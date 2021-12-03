@@ -26,7 +26,7 @@ class Recette extends Modele{
         // retourne la liste des ingrédientscode
         // utiliser pour cela executerRequete avec la requête SQL et $idRecette en
         
-        $sql = 'SELECT * FROM ingredient WHERE id='.$idRecette;
+        $sql = 'SELECT * FROM ingredient WHERE idRecette='.$idRecette;
         return $this->executerRequete($sql);
     }
 }

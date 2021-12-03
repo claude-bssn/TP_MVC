@@ -37,3 +37,6 @@ h1 {
 #txtCommentaire {
     width: 50%;
 }
+#erreur{
+    color:red;
+}
